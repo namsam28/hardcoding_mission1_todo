@@ -5,6 +5,7 @@
     width: 100%;
     font-size: 14px;
     color: #353535;
+    padding: 5px 0;
     border-bottom: 1px solid #ccc;
     &:nth-child(2n) {
         background: #eee;
@@ -14,14 +15,14 @@
         display: block;
         width: 100%;
         box-sizing: border-box;
-        padding: 0 10px 0 30px;
+        padding: 0 15px 0 30px;
         font-size: 1rem;
         line-height: 1.5;
         cursor: pointer;
         &:before {
             content: "";
             position: absolute;
-            left: 10px;
+            left: 15px;
             top: 50%;
             display: block;
             width: 20px;
@@ -33,7 +34,7 @@
         &:after {
             content: "";
             position: absolute;
-            left: 10px;
+            left: 15px;
             top: 50%;
             display: block;
             width: 14px;
@@ -48,16 +49,35 @@
         }
     }
 
-    .todo-delete {
+    button + button {
+        margin-left: 2px;
+    }
+    .todo-update {
         position: relative;
         width: 40px;
         height: 40px;
-        border: 1px solid #ccc;
+        border: none;
         background: #333;
         outline: none;
         box-sizing: border-box;
         font-size: 0;
+        color: #fff;
+        svg {
+            width: 80%;
+            height: 80%;
+        }
+    }
 
+    .todo-delete {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        border: none;
+        background: #333;
+        outline: none;
+        box-sizing: border-box;
+        font-size: 0;
+        color: #fff;
         &::before,
         &::after {
             content: "";
@@ -73,6 +93,10 @@
 
         &::after {
             transform: translate(-50%, -50%) rotateZ(-45deg);
+        }
+        svg {
+            width: 80%;
+            height: 80%;
         }
     }
 }

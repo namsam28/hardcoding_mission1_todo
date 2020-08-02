@@ -1,4 +1,5 @@
 import React from "react";
+import { MdEdit } from "react-icons/md";
 import "./TodoListItem.scss";
 
 class TodoListItem extends React.Component {
@@ -19,6 +20,9 @@ class TodoListItem extends React.Component {
                 >
                     {title}
                 </span>
+                <button className="todo-update">
+                    <MdEdit />
+                </button>
                 <button className="todo-delete" onClick={() => onRemove(id)}>
                     삭제
                 </button>

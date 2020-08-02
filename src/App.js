@@ -7,6 +7,7 @@ import "./App.scss";
 class App extends React.Component {
     state = {
         data: [],
+        nextId: 4,
     };
 
     constructor(props) {
@@ -33,10 +34,21 @@ class App extends React.Component {
         this.setState({ data: updateData });
     }
 
-    onRemove(id) {
-        const { data } = this.state;
+    onRemove() {
+        const { data, id } = this.state;
         const updateData = data.filter((data) => data.id !== id);
         this.setState({ data: updateData });
+    }
+
+    onInsert(value) {
+        const { data, nextId } = this.state;
+        const nextData = {
+            id: nextId,
+            title: value,
+            isChecked: false,
+        };
+
+        this.setState({ data: data.concat(nextData), nextId: nextId + 1 });
     }
 
     componentDidMount() {
@@ -53,7 +65,7 @@ class App extends React.Component {
         return (
             <div className="App">
                 <TodoTemplate>
-                    <TodoInsert />
+                    <TodoInsert onInsert={this.onInsert.bind(this)} />
                     <TodoList
                         data={data}
                         onToggle={this.onToggle.bind(this)}
