@@ -24,7 +24,7 @@ class App extends React.Component {
         ];
     }
 
-    onToggle(id) {
+    onToggle = (id) => {
         const { data } = this.state;
         const updateData = data.map((data) => {
             return data.id === id
@@ -32,15 +32,15 @@ class App extends React.Component {
                 : data;
         });
         this.setState({ data: updateData });
-    }
+    };
 
-    onRemove() {
-        const { data, id } = this.state;
+    onRemove = (id) => {
+        const { data } = this.state;
         const updateData = data.filter((data) => data.id !== id);
         this.setState({ data: updateData });
-    }
+    };
 
-    onInsert(value) {
+    onInsert = (value) => {
         const { data, nextId } = this.state;
         const nextData = {
             id: nextId,
@@ -49,7 +49,7 @@ class App extends React.Component {
         };
 
         this.setState({ data: data.concat(nextData), nextId: nextId + 1 });
-    }
+    };
 
     componentDidMount() {
         console.log(this.state);
@@ -65,11 +65,11 @@ class App extends React.Component {
         return (
             <div className="App">
                 <TodoTemplate>
-                    <TodoInsert onInsert={this.onInsert.bind(this)} />
+                    <TodoInsert onInsert={this.onInsert} />
                     <TodoList
                         data={data}
-                        onToggle={this.onToggle.bind(this)}
-                        onRemove={this.onRemove.bind(this)}
+                        onToggle={this.onToggle}
+                        onRemove={this.onRemove}
                     />
                 </TodoTemplate>
             </div>
