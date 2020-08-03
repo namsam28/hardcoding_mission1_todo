@@ -3,7 +3,6 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    font-size: 14px;
     color: #353535;
     padding: 5px 0;
     border-bottom: 1px solid #ccc;
@@ -12,7 +11,9 @@
     }
     .todo-title {
         position: relative;
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
         width: 100%;
         box-sizing: border-box;
         padding: 0 15px 0 30px;
@@ -46,6 +47,34 @@
         }
         &.isChecked:after {
             border-color: red;
+        }
+        & > span,
+        & > textarea {
+            display: block;
+            width: 100%;
+            min-height: 24px;
+            font-size: 14px;
+            line-height: 1.5;
+            padding: 0;
+            font-family: sans-serif;
+            word-break: break-all;
+            resize: none;
+            border: none;
+            background: none;
+            &:focus {
+                outline: none;
+            }
+        }
+        & > textarea {
+            display: none;
+            height: 24px;
+        }
+
+        &.editmode > span {
+            display: none;
+        }
+        &.editmode > textarea {
+            display: block;
         }
     }
 

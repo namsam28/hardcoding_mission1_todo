@@ -51,8 +51,19 @@ class App extends React.Component {
         this.setState({ data: data.concat(nextData), nextId: nextId + 1 });
     };
 
+    onEdit = (id, title) => {
+        const { data } = this.state;
+        const nextData = data.map((data) => {
+            //return data.id === id ? (data.title = title) : data;
+            return data.id === id
+                ? { ...data, title: title, isChecked: false }
+                : data;
+        });
+        this.setState({ data: nextData });
+    };
+
     componentDidMount() {
-        console.log(this.state);
+        //console.log(this.state);
     }
 
     componentDidUpdate() {
@@ -70,6 +81,7 @@ class App extends React.Component {
                         data={data}
                         onToggle={this.onToggle}
                         onRemove={this.onRemove}
+                        onEdit={this.onEdit}
                     />
                 </TodoTemplate>
             </div>
