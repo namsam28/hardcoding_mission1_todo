@@ -20,7 +20,7 @@ class TodoList extends React.Component {
     // }
 
     render() {
-        const { data, onToggle, onRemove } = this.props;
+        const { data, onToggle, onRemove, onEdit } = this.props;
         return (
             <ul className="todo-list">
                 {data.map((item) => {
@@ -30,6 +30,7 @@ class TodoList extends React.Component {
                             data={item}
                             onToggle={onToggle}
                             onRemove={onRemove}
+                            onEdit={onEdit}
                         />
                     );
                 })}

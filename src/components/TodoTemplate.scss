@@ -1,4 +1,5 @@
 .todo-template {
+    position: relative;
     width: 80%;
     height: 80vh;
     max-width: 414px;
@@ -8,14 +9,16 @@
     border-radius: 5px;
     box-sizing: border-box;
     margin: 1.5rem auto 0;
+    overflow: hidden;
 
     header {
-        background: #ccc;
+        background: #db7676;
         border-bottom: 1px solid #333;
+        height: 60px;
         h1 {
-            font-size: 2rem;
+            font-size: 1.6rem;
             margin: 0;
-            padding: 0.6rem 0.6rem;
+            padding: 0.8rem 0.8rem;
         }
     }
 }
